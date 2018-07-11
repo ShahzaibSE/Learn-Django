@@ -1,4 +1,7 @@
 from django.shortcuts import render, HttpResponse;
+from django.http import JsonResponse;
+from .models import Question;
+from django.core import serializers;
 
 # Create your views here.
 
@@ -11,3 +14,6 @@ def results(request, question_id):
 
 def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
+
+def voters(request):
+    return JsonResponse(serializers.serialize('json', Question.objects.all()), safe=False);

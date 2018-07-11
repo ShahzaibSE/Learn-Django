@@ -3,4 +3,6 @@ from django.urls import path;
 # Views
 from . import views;
 
-urlpatterns = [];
+urlpatterns = [
+    path('', views.voters, name="Voters list")
+];
